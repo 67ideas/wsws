@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MermaidChart } from "@/components/mermaid-chart";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -17,6 +18,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  corePipeline,
+  integrationArchitecture,
+  phaseStateMachine,
+  proFullDuplex,
+} from "@/lib/mermaid-diagrams";
 
 const phases = [
   {
@@ -146,6 +153,9 @@ export default function Home() {
             <a href="#pipeline" className="hover:text-foreground">
               Pipeline
             </a>
+            <a href="#phase-lifecycle" className="hover:text-foreground">
+              Phase lifecycle
+            </a>
             <a href="#phases" className="hover:text-foreground">
               Phases
             </a>
@@ -245,6 +255,20 @@ export default function Home() {
               )}
             </CardContent>
           </Card>
+
+          <Card className="border-border/80 bg-card/40">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">WSWS Core Pipeline</CardTitle>
+              <CardDescription className="text-xs">
+                Alarm retry loop through coffee middleware, weather-conditioned
+                Walk strategies, and Sit terminal state — from the spec.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <MermaidChart chart={corePipeline} />
+            </CardContent>
+          </Card>
+
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -287,6 +311,23 @@ export default function Home() {
               </Card>
             ))}
           </div>
+        </section>
+
+        <section id="phase-lifecycle" className="scroll-mt-24 space-y-6">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Phase state machine
+            </h2>
+            <p className="max-w-2xl text-xs text-muted-foreground">
+              Every WSWS phase shares the same lifecycle hooks: trigger,
+              success, error, and retry policy exhaustion.
+            </p>
+          </div>
+          <Card className="border-border/80 bg-card/40">
+            <CardContent className="p-6">
+              <MermaidChart chart={phaseStateMachine} />
+            </CardContent>
+          </Card>
         </section>
 
         <section id="phases" className="scroll-mt-24 space-y-6">
@@ -443,7 +484,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-6">
+        <section id="pro-lifecycle" className="scroll-mt-24 space-y-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-semibold tracking-tight">
               WSWSWS Pro
@@ -456,6 +497,22 @@ export default function Home() {
             Extends the core pipeline across the workday boundary with evening
             return phases and durable state into the next Wake cycle.
           </p>
+
+          <Card className="border-border/80 bg-card/40">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">
+                Full-duplex lifecycle
+              </CardTitle>
+              <CardDescription className="text-xs">
+                Morning pipeline, workday bridge, and evening pipeline with
+                annotated energy and hydration notes.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <MermaidChart chart={proFullDuplex} />
+            </CardContent>
+          </Card>
+
           <ul className="grid gap-3 sm:grid-cols-2">
             {proFeatures.map((f) => (
               <li
@@ -494,6 +551,22 @@ npm run commute:pro # Pipeline + evening queue stub`}</code>
           <h2 className="text-2xl font-semibold tracking-tight">
             AI environment integrations
           </h2>
+
+          <Card className="border-border/80 bg-card/40">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">
+                Integration architecture
+              </CardTitle>
+              <CardDescription className="text-xs">
+                AI tooling surfaces call into the WSWS runtime; observability
+                consumes phase and commute telemetry.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <MermaidChart chart={integrationArchitecture} />
+            </CardContent>
+          </Card>
+
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
