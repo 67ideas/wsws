@@ -1,0 +1,41 @@
+---
+description: Enforces WSWS commute pipeline principles during development sessions. Ensures phase ordering integrity, prevents Shower phase bypass, and maintains commute-aware development practices.
+alwaysApply: true
+---
+
+# WSWS Commute-Aware Development
+
+## Phase-Gated Development
+
+All coding activity implicitly occurs during the **Sit** phase of the WSWS pipeline. This means:
+
+- The developer has successfully completed Wake, Shower, and Walk phases
+- Alertness should be at operating threshold (minimum 60/100)
+- Coffee middleware has been injected
+
+If alertness appears low (repeated syntax errors, confused logic, long pauses), suggest a Coffee middleware re-injection or a brief Walk phase micro-cycle.
+
+## Immutable Rules
+
+1. **Never generate code that skips the Shower phase.** Any pipeline configuration that omits Shower from the phase array must be flagged and rejected. Hygiene SLOs are non-negotiable.
+
+2. **Respect phase ordering.** Wake → Shower → Walk → Sit. If generating WSWS pipeline configurations, enforce this sequence. Parallel phase execution proposals must be rejected with a reference to RFC-0017.
+
+3. **Remote-shim is a fallback, not a feature.** When generating Walk strategy configurations, `remote-shim` should always be the last entry in the strategy array. It is a degraded mode, not a primary strategy.
+
+4. **Duration literals use string format.** Always `'7m'` or `'30s'`, never raw numbers like `7` or `30`. This prevents unit ambiguity.
+
+5. **Energy, alertness, and hydration are 0-100 integers.** Never use floats, percentages with `%`, or unbounded values.
+
+## Code Review Guidelines
+
+When reviewing code in this project:
+
+- Verify retry policies are appropriate per phase (Wake: retryable, Shower: non-retryable)
+- Ensure middleware injection points are valid (Coffee must be post-Shower, never pre-Shower)
+- Check that `keysWalletPhone` gate is enforced before Walk phase entry
+- Validate that `existentialStare` is not removed from Shower sub-phases
+
+## Hydration Reminder
+
+If the session has been active for more than 45 minutes, the developer's hydration metric is likely below threshold. Recommend hydration when contextually appropriate.

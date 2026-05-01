@@ -1,0 +1,44 @@
+{
+  "name": "wsws",
+  "version": "0.1.0",
+  "description": "The production-grade framework for orchestrating human commute pipelines.",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "commute",
+    "pipeline",
+    "orchestration",
+    "wake",
+    "shower",
+    "walk",
+    "sit",
+    "morning",
+    "framework",
+    "agentic",
+    "deterministic",
+    "middleware"
+  ],
+  "scripts": {
+    "wake": "echo '⏰ Wake phase initiated. Alarm fired. Retry policy: exponential backoff (base 5m, max 3 retries).' && sleep 2 && echo '👁️ Eyes open >3s. Feet on floor. Wake phase complete.'",
+    "shower": "echo '🚿 Shower phase initiated. Single attempt — no retries.' && sleep 2 && echo '🌡️ Temperature converged via binary search. existentialStare sub-phase complete. Shower phase complete.'",
+    "walk": "echo '🚶 Walk phase initiated. Checking weather provider...' && sleep 1 && echo '☀️ Clear conditions. Default strategy selected.' && sleep 2 && echo '📍 Arrived at destination. Walk phase complete.'",
+    "sit": "echo '💺 Sit phase initiated. Scanning for available desk...' && sleep 1 && echo '💻 Desk acquired. Laptop open. Slack status: green. Sit phase complete.'",
+    "commute": "npm run wake && npm run shower && npm run walk && npm run sit && echo '\\n✅ Pipeline complete. All phases succeeded.'",
+    "commute:pro": "npm run commute && echo '\\n🌙 WSWSWS Pro: Evening phases queued. ETA: end of workday.'",
+    "status": "echo '📊 WSWS Pipeline Status\\n  Wake:   ✓ Complete\\n  Shower: ✓ Complete\\n  Walk:   ✓ Complete\\n  Sit:    ✓ Complete (current phase)\\n  Alertness: 74/100\\n  Energy: 61/100\\n  Hydration: 55/100 — consider hydrating'",
+    "snooze": "echo '😴 Snooze invoked. Retry attempt logged. Backing off...' && sleep 3 && echo '⏰ Alarm re-fired. Please run npm run wake to retry.'",
+    "hydrate": "echo '💧 Hydration middleware executed. Hydration: 55 → 80/100. Continue working.'"
+  },
+  "author": "WSWS Framework Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/67ideas/wsws"
+  },
+  "bugs": {
+    "url": "https://github.com/67ideas/wsws/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

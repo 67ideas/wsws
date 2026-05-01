@@ -1,0 +1,5 @@
+interface:
+  display_name: "WSWS Commute Orchestrator"
+  short_description: "Orchestrate commute pipelines with Wake-Shower-Walk-Sit"
+  icon_small: "./assets/wsws-icon-small.svg"
+  icon_large: "./assets/wsws-icon-large.png"
